@@ -3,12 +3,12 @@
 	define('WP_USE_THEMES', false);
 	require('../../../../wp-load.php');
 	
-	$email = $_REQUEST['email'];
-	$file = $_REQUEST['file'];
-	$title = $_REQUEST['title'];
-	$postid = $_REQUEST['postid'];
-	$require = $_REQUEST['require'];
-	$delivery = $_REQUEST['delivery'];
+	$email = sanitize_email($_REQUEST['email']);
+	$file = sanitize_text_field($_REQUEST['file']);
+	$title = sanitize_text_field($_REQUEST['title']);
+	$postid = intval($_REQUEST['postid']);
+	$require = sanitize_text_field($_REQUEST['require']);
+	$delivery = sanitize_text_field($_REQUEST['delivery']);
 ?>
 <div id="ss-downloads">	
 	<?php if($require == "email") { ?>

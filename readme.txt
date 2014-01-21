@@ -2,9 +2,9 @@
 Contributors: strangerstudios
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZMZ467TYFFDEQ
 Tags: file, download, files, secure files, downloads, email capture 
-Requires at least: 3.0
-Tested up to: 3.2.1
-Stable tag: 1.4.4
+Requires at least: 3.8
+Tested up to: 3.8
+Stable tag: 1.5
 
 Embed forms in your pages and posts that accept an email address in exchange for a file download.
 
@@ -89,6 +89,13 @@ I will answer your question and post it here.
 1. Addresses and stats in admin.
 
 == Changelog ==
+= 1.5 =
+* Important update that fixes some cross site scripting vulnerabilities.
+
+= 1.4.4.1 =
+* Forgot to include the exportemails.php file in the repo. So update to 
+get that file to be able to export emails.
+
 = 1.4.4 =
 * Added a "name and email" option to the "required" dropdown and a matching template file to collect name and email address.
 * Added a "name" column to the justemails (ironic, I know) and ss_downloads tables.

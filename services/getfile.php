@@ -3,7 +3,7 @@
 	require('../../../../wp-load.php');
 		
 	//get the filename
-	$file = ssd_unswapChars($_REQUEST['file']);		
+	$file = ssd_unswapChars(sanitize_text_field($_REQUEST['file']));		
 	
 	//fix it if there is no leading http, etc
 	if(substr($file, 0, 1) == "/")

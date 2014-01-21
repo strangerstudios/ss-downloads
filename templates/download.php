@@ -3,8 +3,8 @@
 	define('WP_USE_THEMES', false);
 	require('../../../../wp-load.php');
 	
-	$file = $_REQUEST['file'];
-	$title = $_REQUEST['title'];
+	$file = sanitize_text_field($_REQUEST['file']);
+	$title = sanitize_text_field($_REQUEST['title']);
 ?>
 <div id="ss-downloads">	
 	<h3>Your download is ready &raquo;</h3>

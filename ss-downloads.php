@@ -3,13 +3,13 @@
 Plugin Name: SS Downloads
 Plugin URI: http://www.strangerstudios.com/wordpress-plugins/ss-downloads/
 Description: Email capture for content.
-Version: 1.4.4
+Version: 1.5
 Author: Jason Coleman
 Author URI: http://www.strangerstudios.com
 */
 
 //version
-define("SSDOWNLOADS_VERSION", "1.4.4");
+define("SSDOWNLOADS_VERSION", "1.5");
 add_option("ssd_db_version", "1.0");
 
 //an include with some defines and functions
@@ -403,7 +403,7 @@ function ssd_ss_downloads()
 				 window.location='?page=ssdownloads&ssdemailreset=1';
 			});
 		</script>		
-		<textarea style="width: 500px; height: 100px;"><?php echo implode(", ", $emails_and_names); ?></textarea>		
+		<textarea style="width: 500px; height: 100px;"><?php echo esc_textarea(implode(", ", $emails_and_names)); ?></textarea>		
         
 		<?php if($msg) { ?>
 			<p class="ssd_message <?php echo $msgt; ?>"><?php echo $msg; ?></p>
@@ -513,12 +513,12 @@ function ssd_ss_downloads()
                 <tr>
                     <th scope="row" valign="top" colspan="2">
                         <label for="ssdshortcode">Shortcode:</label><br />
-                        <input type="text" name="ssdshortcode" value="<?php echo $ssdshortcode; ?>" />    
+                        <input type="text" name="ssdshortcode" value="<?php echo esc_attr($ssdshortcode); ?>" />    
                         <br /><small>Can change this to resolve plugin conflicts.</small>
                         
                        	<p>
                         	With your current settings, your shortcode to embed a download form would be something like:<br />
-                            <strong>[<?php echo $ssdshortcode; ?> file="filename.txt" title="title"]</strong>
+                            <strong>[<?php echo sanitize_text_field($ssdshortcode); ?> file="filename.txt" title="title"]</strong>
                         </p>
                     </th>
                 </tr>

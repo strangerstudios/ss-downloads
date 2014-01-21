@@ -3,15 +3,15 @@
 	define('WP_USE_THEMES', false);
 	require('../../../../wp-load.php');	
 	
-	$file = $_REQUEST['file'];
-	$title = $_REQUEST['title'];
-	$postid = $_REQUEST['postid'];
-	$ssdmsg = $_REQUEST['ssdmsg'];	
+	$file = sanitize_text_field($_REQUEST['file']);
+	$title = sanitize_text_field($_REQUEST['title']);
+	$postid = intval($_REQUEST['postid']);
+	$ssdmsg = intval($_REQUEST['ssdmsg']);	
 ?>
 <div id="ss-downloads">
 	<h3>Enter your name and email address to download <em><?php echo $title; ?></em></h3>
     <?php
-		if($_REQUEST['ssdmsg'] == 1)
+		if($ssdmsg == 1)
 		{
 		?>
 		<p class="message error">Please enter a name and valid email address.</p>
@@ -20,9 +20,9 @@
 	?>
     
     <form action="<?php echo SSD_PLUGIN_URL; ?>/services/addemail.php" method="post">
-        <input type="hidden" name="title" value="<?php echo $title; ?>" />
-        <input type="hidden" name="file" value="<?php echo $file; ?>" />        
-        <input type="hidden" name="postid" value="<?php echo $postid; ?>" />
+        <input type="hidden" name="title" value="<?php echo esc_attr($title); ?>" />
+        <input type="hidden" name="file" value="<?php echo esc_attr($file); ?>" />        
+        <input type="hidden" name="postid" value="<?php echo intval($postid); ?>" />
 		<table>
 		<tr>
 			<td>Name:</td>
